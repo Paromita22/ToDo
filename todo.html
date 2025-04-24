@@ -1,355 +1,175 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="todo-ostad.js">
-    <link rel="stylesheet" href="todo.js">
-
-   
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #8bb5a9;
-        
-        margin: 0;
-        padding: 0;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-       
-        height: 100vh;
-        flex-direction: column;
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
      
-    }
-
-    #todo-app {
-        
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 500px;
-        max-width: 100%;
-        height: 50px;
-       background-color: rgb(234, 234, 216)
-      
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    #task-input {
-   
-        
-        width: 520px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-    }
-
-    #task-add-button {
-        padding: 10px 20px;
-        background-color: #214f88;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    #task-add-button:hover {
-        background-color: #214f88;
-    }
-
-    #task-list {
-        list-style-type: none;
-        padding: 0;
-        margin-top: 20px;
-    }
-
-    #task-list li {
-       
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        width: 200px;
-        justify-content: space-between;
-        align-items: center;
-        display: grid;
-    grid-template-columns: 1fr auto; 
-    align-items: center; 
-    gap: 10px; 
-     
-    }
-    #task-list li .task-buttons {
-    display: flex;
-    gap: 5px; 
-}
-
-    #task-list li.completed {
-        color: #888;
-        text-decoration: line-through;
-    }
+     <link rel="stylesheet" href="todo-ostad.js">
+     <link rel="stylesheet" href="todo.js">
  
+    
  
-
-
-
-   
-
-    #task-list li button {
-        margin-left: 5px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4.5px;
-        cursor: pointer;
-    }
-
-
-
-    #task-list li button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-
-    
-    #update-input {
-        width: calc(100% - 80px);
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 5px;
-    }
-
-   
-
-    
-</style>
-</head>
-<body>
-    <div id="todo-app">
-    <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    text-align: center;">Basic To-Do List</h2>
-    </div>
-    
-    <div>
-        <input id="task-input" type="text" placeholder="Enter New Task title">
-        <br><br>
-        <button id="task-add-button">Add New Task</button>
-    </div>
-    <ul id="task-list">
-      
-        <li id="task-1">
-            Task 1
-            <button id="task-1-delete-button">Delete</button>
-            <button id="task-1-update-button">Update</button>
-            <button id="task-1-complete-button">Complete</button>
-
-        </li>
-        <li id="task-2">
-            Task 2
-            <button id="task-2-delete-button">Delete</button>
-            <button id="task-2-update-button">Update</button>
-            <button id="task-2-complete-button">Complete</button>
-
-        </li>
+ <style>
+     body {
+         font-family: Arial, sans-serif;
+         background-color: #8bb5a9;
+         
+         margin: 0;
+         padding: 0;
+         display: grid;
+         justify-content: center;
+         align-items: center;
         
-    </ul>
-     
+         height: 100vh;
+         flex-direction: column;
       
-  <script src="todo.js"></script>
+     }
+ 
+     #todo-app {
+         
+         background-color: #fff;
+         padding: 20px;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         width: 500px;
+         max-width: 100%;
+         height: 50px;
+        background-color: rgb(234, 234, 216)
+       
+     }
+ 
+     h1 {
+         text-align: center;
+         color: #333;
+         margin-bottom: 20px;
+     }
+ 
+     #task-input {
     
-   
-    
-    <script src="todo.js"></script>
+         
+         width: 520px;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         margin-right: 10px;
+     }
+ 
+     #task-add-button {
+         padding: 10px 20px;
+         background-color: #214f88;
+         color: white;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+     }
+ 
+     #task-add-button:hover {
+         background-color: #214f88;
+     }
+ 
+     #task-list {
+         list-style-type: none;
+         padding: 0;
+         margin-top: 20px;
+     }
+ 
+     #task-list li {
+        
+         padding: 10px;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+         margin-bottom: 10px;
+         width: 200px;
+         justify-content: space-between;
+         align-items: center;
+         display: grid;
+     grid-template-columns: 1fr auto; 
+     align-items: center; 
+     gap: 10px; 
+      
+     }
+     #task-list li .task-buttons {
+     display: flex;
+     gap: 5px; 
+ }
+ 
+     #task-list li.completed {
+         color: #888;
+         text-decoration: line-through;
+     }
   
-</body>
-</html>
-=======
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="todo-ostad.js">
-    <link rel="stylesheet" href="todo.js">
-
-   
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #8bb5a9;
-        
-        margin: 0;
-        padding: 0;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-       
-        height: 100vh;
-        flex-direction: column;
-     
-    }
-
-    #todo-app {
-        
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 500px;
-        max-width: 100%;
-        height: 50px;
-       background-color: rgb(234, 234, 216)
-      
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    #task-input {
-   
-        
-        width: 520px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-    }
-
-    #task-add-button {
-        padding: 10px 20px;
-        background-color: #214f88;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    #task-add-button:hover {
-        background-color: #214f88;
-    }
-
-    #task-list {
-        list-style-type: none;
-        padding: 0;
-        margin-top: 20px;
-    }
-
-    #task-list li {
-       
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        width: 200px;
-        justify-content: space-between;
-        align-items: center;
-        display: grid;
-    grid-template-columns: 1fr auto; 
-    align-items: center; 
-    gap: 10px; 
-     
-    }
-    #task-list li .task-buttons {
-    display: flex;
-    gap: 5px; 
-}
-
-    #task-list li.completed {
-        color: #888;
-        text-decoration: line-through;
-    }
- 
- 
-
-
-
-   
-
-    #task-list li button {
-        margin-left: 5px;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
- 
-
-    #task-list li button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-
-    
-    #update-input {
-        width: calc(100% - 80px);
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 5px;
-    }
-
-   
-
-    
-</style>
-</head>
-<body>
-    <div id="todo-app">
-    <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    text-align: center;">Basic To-Do List</h2>
-    </div>
-    
-    <div>
-        <input id="task-input" type="text" placeholder="Enter New Task title">
-        <br><br>
-        <button id="task-add-button">Add New Task</button>
-    </div>
-    <ul id="task-list">
-      
-        <li id="task-1">
-            Task 1
-            <button id="task-1-delete-button">Delete</button>
-            <button id="task-1-update-button">Update</button>
-            <button id="task-1-complete-button">Complete</button>
-
-        </li>
-        <li id="task-2">
-            Task 2
-            <button id="task-2-delete-button">Delete</button>
-            <button id="task-2-update-button">Update</button>
-            <button id="task-2-complete-button">Complete</button>
-
-        </li>
-        
-    </ul>
-     
-      
-  <script src="todo.js"></script>
-    
-   
-    
-    <script src="todo.js"></script>
   
-</body>
-</html>
->>>>>>> b7fdea43308f4f41901609e840321cea66ee25f0
+ 
+ 
+ 
+    
+ 
+     #task-list li button {
+         margin-left: 5px;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+     }
+ 
+  
+ 
+     #task-list li button:disabled {
+         background-color: #ccc;
+         cursor: not-allowed;
+     }
+ 
+     
+     #update-input {
+         width: calc(100% - 80px);
+         padding: 5px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         margin-right: 5px;
+     }
+ 
+    
+ 
+     
+ </style>
+ </head>
+ <body>
+     <div id="todo-app">
+     <h2 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+     text-align: center;">Basic To-Do List</h2>
+     </div>
+     
+     <div>
+         <input id="task-input" type="text" placeholder="Enter New Task title">
+         <br><br>
+         <button id="task-add-button">Add New Task</button>
+     </div>
+     <ul id="task-list">
+       
+         <li id="task-1">
+             Task 1
+             <button id="task-1-delete-button">Delete</button>
+             <button id="task-1-update-button">Update</button>
+             <button id="task-1-complete-button">Complete</button>
+ 
+         </li>
+         <li id="task-2">
+             Task 2
+             <button id="task-2-delete-button">Delete</button>
+             <button id="task-2-update-button">Update</button>
+             <button id="task-2-complete-button">Complete</button>
+ 
+         </li>
+         
+     </ul>
+      
+       
+   <script src="todo.js"></script>
+     
+    
+     
+     <script src="todo.js"></script>
+   
+ </body>
+ </html>
